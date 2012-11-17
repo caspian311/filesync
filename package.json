@@ -1,8 +1,8 @@
 {
-	"name": "Synchronizer",
-	"version": "1.0.0",
+	"name": "filesync",
+	"version": "0.0.1",
 	"author": "Matt Todd <matt.c.todd@gmail.com>",
-   "description": "Simple differentiator",
+   "description": "Easy way to store files to a remote server",
 	"scripts": {
 		"test": "cake test"
 	},
