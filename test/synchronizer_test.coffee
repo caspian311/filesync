@@ -21,3 +21,12 @@ describe "Synchronizer", ->
          2.should.be.equal results.length
          "monkeys".should.be.equal results[0]
          "elephants".should.be.equal results[1] 
+
+      it "should return an empty array if the two given arrays are the same", ->
+         remote_items = ["monkeys", "zebras", "elephants"]
+         local_items = ["monkeys", "zebras", "elephants"]
+         results = test_object.diffs local_items, remote_items
+
+         0.should.be.equal results.length
+
+
