@@ -2,7 +2,7 @@
 
 task "compile", "compile coffee script", ->
    run "./node_modules/.bin/coffee 
-      --compile --output lib/ src/
+      --compile --output lib/filesync src/
    "
    
 task "test", "run tests", ->

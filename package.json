@@ -6,6 +6,21 @@
 	"scripts": {
 		"test": "cake test"
 	},
+   "engines": {
+      "node": ">=0.4.0"
+   },
+   "directories": {
+      "lib": "./lib/filesync"
+   },
+   "bin": {
+      "filesync": "./bin/filesync"
+   },
+   "homepage": "https://caspian311.github.com/filesync",
+   "bugs": "https://github.com/caspian311/filesync/issues",
+   "repository": {
+      "type": "git",
+      "url": "git://github.com/caspian311/filesync.git"
+   },
 	"devDependencies": {
 		"mocha": "1.7.0",
 		"chai": "1.3.0",
