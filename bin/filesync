@@ -2,6 +2,11 @@
 
 var path = require('path')
 var fs   = require('fs')
-var lib  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib')
+var argv = require('optimist').argv;
 
-require(lib + '/filesync/command').run()
+var lib_directory  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib')
+filesync_command = path.join(lib_directory, "/filesync/command")
+
+obj = require(filesync_command)
+new obj.Command().run(argv)
+

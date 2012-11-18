@@ -1,9 +1,9 @@
 { Synchronizer } = require "../src/synchronizer"
 
 describe "Synchronizer", ->
-   describe "#diffs", ->
-      test_object = new Synchronizer()
+   test_object = new Synchronizer()
 
+   describe "#diffs", ->
       it "should return all remote items when local items are empty", ->
          remote_items = ["monkeys", "zebras", "elephants"]
          results = test_object.diffs [], remote_items
