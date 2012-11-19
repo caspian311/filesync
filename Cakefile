@@ -2,7 +2,7 @@
 
 task "compile", "compile coffee script", ->
    run "./node_modules/.bin/coffee 
-      --compile --output lib/ src/
+      --compile --output lib/filesync src/
    "
    
 task "test", "run tests", ->
@@ -15,6 +15,10 @@ task "test", "run tests", ->
       --require test/test_helper.coffee 
       --colors
    "
+
+
+task "install", "install package", (cb) ->
+   invoke "compile"
 
 run = (command) ->
    exec command, (err, output) ->
