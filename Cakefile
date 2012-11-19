@@ -16,6 +16,10 @@ task "test", "run tests", ->
       --colors
    "
 
+
+task "install", "install package", (cb) ->
+   invoke "compile"
+
 run = (command) ->
    exec command, (err, output) ->
       console.log output
