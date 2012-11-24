@@ -3,16 +3,17 @@
 original_log = null
 
 describe "Command", ->
-   test_object = new Command
+   mock_publish_files = {}
+   test_object = new Command mock_publish_files
 
    describe "#run", ->
-      it "should call _ on mock_args", ->
+      it "should publish_files when given a publish command", ->
          mock_args = {}
-         mock_args._ = "this is the _ variable"
+         mock_args._ = ["publish", "arg1", "arg2", "arg3"]
 
-         test_object.print_out = sinon.spy()
+         mock_publish_files.execute = sinon.spy()
 
          test_object.run mock_args
 
-         assert test_object.print_out.calledWith(mock_args._)
+         assert mock_publish_files.execute.calledWith(["arg1", "arg2", "arg3"])
 
