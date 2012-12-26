@@ -8,8 +8,8 @@ describe "Command", ->
 
    describe "#run", ->
       it "should publish_files when given a publish command", ->
-         mock_args = {}
-         mock_args._ = ["publish", "arg1", "arg2", "arg3"]
+         mock_args =
+            _: ["publish", "arg1", "arg2", "arg3"]
 
          mock_publish_files.execute = sinon.spy()
 

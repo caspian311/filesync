@@ -1,11 +1,11 @@
-{ PublishFiles } = require "../src/publish_files.coffee"
+{ PublishFiles } = require "./publish_files"
 
 class Command
    constructor: (@publish_files=new PublishFiles()) ->
 
    run: (args) ->
       all_arguments = args._
-      commadn = all_arguments.reverse().pop()
+      command = all_arguments.reverse().pop()
       all_arguments.reverse()
       @publish_files.execute(all_arguments)
 
