@@ -7,7 +7,9 @@ class Command
       all_arguments = args._
       command = all_arguments.reverse().pop()
       all_arguments.reverse()
-      @publish_files.execute(all_arguments)
+
+      if command == "publish"
+         @publish_files.execute(all_arguments)
 
    print_out: (s) ->
       console.log s

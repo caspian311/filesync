@@ -7,6 +7,16 @@ describe "Command", ->
    test_object = new Command mock_publish_files
 
    describe "#run", ->
+      it "should do nothing when given an unknown command", ->
+         mock_args =
+            _: ["monkey"]
+
+         mock_publish_files.execute = sinon.spy()
+
+         test_object.run mock_args
+
+         assert not mock_publish_files.execute.called
+
       it "should publish_files when given a publish command", ->
          mock_args =
             _: ["publish", "arg1", "arg2", "arg3"]
