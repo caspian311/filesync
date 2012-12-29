@@ -6,9 +6,9 @@ describe "PublishFiles", ->
 
    describe "#execute", ->
       it "should make call to webserver", ->
-         mock_web.post = sinon.spy() 
+         mock_web.upload_file = sinon.spy() 
 
-         args = ["local_file.txt", "remote_file.txt"]
+         args = ["local_file.txt"]
          test_object.execute args
 
-         assert mock_web.post.calledWith expected_url, json_data
+         sinon.assert.calledWithMatch mock_web.upload_file, "/files", args[0], sinon.match.any

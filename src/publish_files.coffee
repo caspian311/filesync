@@ -1,25 +1,16 @@
-{ FileUploadRequest } = require "./file_upload_request"
+{ FileUploadRequest } = require "./file_upload_util"
 http = require "http"
 
 class PublishFiles
-   constructor: (@file_upload_request=new FileUploadRequest()) ->
+   constructor: (@web=new Web()) ->
 
    execute: (args) ->
-      options = {
-         host: "localhost",
-         port: 3000,
-         method: "POST",
-         path: "/files"
-      }
-      request = http.request options, (response) ->
+      @web.upload_file "/files", args[0], (response) ->
          str = ""
          response.on "data", (chunk) ->
             str += chunk
          response.on "end", ->
             console.log str
 
-      @file_upload_request.create_upload request, "/tmp/foo.txt"
-
-   
 root = exports ? window
 root.PublishFiles = PublishFiles

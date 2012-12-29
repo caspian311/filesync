@@ -1,19 +1,28 @@
 http = require "http"
 
 class Web
-   get: (url, callback) ->
-      req = _make_request url, callback
+   _url = "localhost"
+   _port = "3000"
+
+   constructor: (url, port, @file_upload_util) ->
+      if url
+         _url = url
+      if port
+         _port = port
+
+   get: (web_path, callback) ->
+      req = _make_request web_path, callback
       req.end()
 
-   post: (url, data, callback) ->
-      req = _make_request url, callback
-      req.write data
-      req.end()
+   upload_file: (web_path, path_to_file, callback) ->
+      req = _make_request web_path, callback
+      @file_upload_util.upload_file req, path_to_file
 
-   _make_request = (url, callback) ->
+   _make_request = (path, callback) ->
       options =
-         host: url
-         path: "/"
+         host: _url
+         port: _port
+         path: path
 
       req = http.request options, (response) ->
          str = ""

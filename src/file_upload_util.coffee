@@ -1,7 +1,7 @@
 fs = require "fs"
 
-class FileUploadRequest
-   create_upload: (request, path_to_file) ->
+class FileUploadUtil
+   upload_file: (request, path_to_file) ->
       boundary_key = Math.random().toString(16)
 
       filename = _extract_filename path_to_file
@@ -23,4 +23,4 @@ class FileUploadRequest
       full_path.substring(full_path.lastIndexOf("/") + 1)
 
 root = exports ? window
-root.FileUploadRequest = FileUploadRequest
+root.FileUploadUtil = FileUploadUtil
